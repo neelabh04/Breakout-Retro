@@ -149,6 +149,13 @@ function checkForCollisions() {
             // change in score
             score++;
             scoreDisplay.innerHTML = score;
+
+            // check for win
+            if(blocks.length === 0) {
+                scoreDisplay.innerHTML = 'Congratulations, you win!!'
+                clearInterval(timerId);
+                document.removeEventListener('keydown', moveUser);
+            }
         }
     }
 
