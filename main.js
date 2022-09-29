@@ -161,6 +161,16 @@ function checkForCollisions() {
         changeDirection();
     }
 
+    // check for collision with board/user (between the dimensions)
+    if
+    (
+      (ballCurrentPosition[0] > currentPosition[0] && ballCurrentPosition[0] < currentPosition[0] + blockWidth) &&
+      (ballCurrentPosition[1] > currentPosition[1] && ballCurrentPosition[1] < currentPosition[1] + blockHeight ) 
+    )
+    {
+      changeDirection()
+    }
+
     // check for game over
     if(ballCurrentPosition[1] <= 0) {
         clearInterval(timerId);
