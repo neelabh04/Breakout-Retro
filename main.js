@@ -1,4 +1,5 @@
 const scoreDisplay = document.querySelector('#score');
+let score = 0;
 
 const grid = document.querySelector('.grid');
 const block = document.createElement('div');
@@ -138,6 +139,16 @@ function checkForCollisions() {
         ) {
             // grabbing the block and converting it to array
             const allBlocks = Array.from(document.querySelectorAll('.block'));
+            
+            // removing the block which made contact
+            allBlocks[i].classList.remove('block');
+            blocks.splice(i, 1);
+
+            changeDirection();
+
+            // change in score
+            score++;
+            scoreDisplay.innerHTML = score;
         }
     }
 
