@@ -129,6 +129,18 @@ timerId = setInterval(moveBall, 30);
 
 // check for collisions
 function checkForCollisions() {
+    // check for impact with block 
+    for(let i = 0; i < blocks.length; i++) {
+        // point of impact checking
+        if(
+            (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
+            ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1]) 
+        ) {
+            // grabbing the block and converting it to array
+            const allBlocks = Array.from(document.querySelectorAll('.block'));
+        }
+    }
+
     // check for wall boundaries
     if(
         ballCurrentPosition[0] >= (boardWidth - ballDiameter) || 
