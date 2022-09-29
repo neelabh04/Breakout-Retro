@@ -9,6 +9,9 @@ const boardWidth = 560;
 const userStart = [230, 10];
 let currentPosition = userStart;
 
+const ballStart = [270, 40];
+let ballCurrentPosition = ballStart;
+
 // create block
 class Block {
     constructor(xAxis, yAxis) {
@@ -93,3 +96,10 @@ function moveUser(e) {
 
 // listens for the arrow keys
 document.addEventListener('keydown', moveUser);
+
+// add ball
+const ball = document.createElement('div');
+ball.classList.add('ball');
+ball.style.left = ballCurrentPosition[0] + 'px';
+ball.style.bottom = ballCurrentPosition[1] + 'px';
+grid.appendChild(ball);
